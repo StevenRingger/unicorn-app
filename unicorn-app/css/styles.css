@@ -1,0 +1,232 @@
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<  General  >>>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+body{
+    background-color: white;
+    padding-bottom: 50px;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+.body{
+    border-radius: 0 0 20px 20px;
+    background-color: rgba(0,0,0,0.25);
+    -webkit-box-shadow: 5px 0px 20px 5px #000;
+    -moz-box-shadow:  5px 0px 20px 5px #000;
+    box-shadow:  5px 0px 20px 5px #000;
+}
+.active{
+    background-color: rgba(255,255,255,0.75);
+    border: 1px solid black;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<<  Header  >>>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+header{
+    margin-bottom: 51px;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<  Navigation  >>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.side-menu{
+    background-color: rgba(255,255,255,0.75);
+    padding: 5px;
+}
+.side-menu ul{
+    padding-left: 0px;
+}
+.side-menu li{
+    list-style-type: none;
+    text-decoration: none;
+    width: 100%;
+    height: 23px;
+    padding-left: 10px;
+}
+
+.side-menu li:hover{
+    background-color: rgba(255,255,255,0.9);
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<<<  User  >>>>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.user-header{
+    background-color: grey;
+    width: 100%;
+    height: 400px;
+}
+.user-nav-bar{
+    background-color: rgba(255,255,255,1);
+    width: 106%;
+    margin-left: -33px;
+    height: 50px;
+    -webkit-box-shadow: 0px 11px 20px #000;
+    -moz-box-shadow: 0px 11px 20px #000;
+    box-shadow: 0px 11px 20px #000;
+}
+.user-content{
+    margin-top: 30px;
+}
+.profile-img{
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-top: 225px;
+    float: left;
+    -webkit-box-shadow: 0px 0px 20px 5px black;
+    -moz-box-shadow: 0px 0px 20px 5px black;
+    box-shadow: 0px 0px 20px 5px black;
+}
+.user-name{
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<  Edit User  >>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<  Unicorns  >>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.unicorn-img{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+}
+.unicorn-img img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<<  Content  >>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.content{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<<<  Posts  >>>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.post{
+    padding: 10px;
+    background-color: rgba(255,255,255,0.75);
+    margin-top: 5px;
+    border: 1px solid black;
+    
+}
+.post-inactive{
+    display: none;
+}
+.post-image{
+    width: 100%;
+    height: 500px;
+    background-color: grey;
+    overflow: hidden;
+
+}
+#post-image-upload{
+    display: none;
+}
+.post-image img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.post-text{
+    padding: 10px;
+}
+hr{
+    margin-top: 2px; 
+    margin-bottom: 2px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border: 0;
+    border-top: 1px solid #000;
+}
+.post-btn{
+    width: 100%;
+}
+.post-btn:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+.post-form{
+    width: 100%;
+    padding:10px;
+    border: 1px solid black;
+}
+.post-form textarea{
+    resize: none;
+    width: 100%;
+    padding:5px;
+}
+
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<  Comments  >>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+
+.comments{
+    margin-top: 10px;
+    display: none;
+}
+.comment{
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+.comment-user{
+}
+.comment-time{
+}
+.comment-text{
+}
+.comment-form{
+    width: 100%;
+    padding:10px;
+    border: 1px solid black;
+}
+.comment-form textarea{
+    resize: none;
+    width: 100%;
+    padding:5px;
+}
+/******************************************************/
+/*<<<<<<<<<<<<<<<<<<<<<  Footer  >>>>>>>>>>>>>>>>>>>>>*/
+/******************************************************/
+footer{
+    background-color: blue;
+    position: relative;
+    height: 50px;
+    border-radius: 0 0 20px 20px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.footer-text{
+    height: 25px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+

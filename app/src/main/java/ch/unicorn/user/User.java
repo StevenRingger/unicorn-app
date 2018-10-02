@@ -1,25 +1,16 @@
 package ch.unicorn.user;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import ch.unicorn.role.Role;
-
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 	
 	@Id
@@ -34,23 +25,33 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "firstname")
+	@Column(name = "first_name")
 	private String firstname;
 
-	@Column(name = "lastname")
+	@Column(name = "last_name")
 	private String lastname;
 
 	@Column(name = "email")
 	private String email;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "users_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<>();
+//	@ManyToMany(fetch = FetchType.EAGER)
+//	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "users_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+//	private Set<Role> roles = new HashSet<>();
+//	
 	
 	
 
 	public int getId() {
 		return id;
+	}
+
+	public User(String username, String password, String firstname, String lastname, String email) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
 	}
 
 	public void setId(int id) {
@@ -97,13 +98,13 @@ public class User {
 		this.email = email;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-	
+//	public Set<Role> getRoles() {
+//		return roles;
+//	}
+//
+//	public void setRoles(Set<Role> roles) {
+//		this.roles = roles;
+//	}
+//	
 	
 }
