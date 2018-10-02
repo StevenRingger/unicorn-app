@@ -4,12 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import ch.unicorn.generic.ExtendedEntity;
+import ch.unicorn.config.generic.ExtendedEntity;
 
 
 /**
  * This class is the entity authority. A role can hold multiple authorities e.g
  * "WRITE_PRIVILEDGE" or "READ_PRIVILEDGE".
+ *
  */
 @Entity
 @Table(name = "authority")
@@ -17,16 +18,16 @@ public class Authority extends ExtendedEntity {
 
 	@Column(name = "name")
 	private String name;
-	
+
 	/**
-	 * 
+	 *
 	 */
-	public Authority(){
-		
+	public Authority() {
+
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public Authority(Long id) {
 		super(id);
@@ -34,24 +35,25 @@ public class Authority extends ExtendedEntity {
 
 	/**
 	 * @param id
-	 * @param authority
+	 * @param name
 	 */
-	public Authority(Long id, String name) {
+	public Authority(Long id, String authority) {
 		super(id);
-		this.name = name;
+		name = authority;
 	}
 
 	/**
-	 * @return the authority
+	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param authority the authority to set
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }

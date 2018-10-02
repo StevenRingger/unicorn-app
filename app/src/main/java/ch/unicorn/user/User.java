@@ -13,7 +13,7 @@ import java.util.Set;
 
 import org.hibernate.annotations.Type;
 
-import ch.unicorn.generic.ExtendedEntity;
+import ch.unicorn.config.generic.ExtendedEntity;
 import ch.unicorn.role.Role;
 
 /**

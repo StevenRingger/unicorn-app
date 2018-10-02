@@ -1,4 +1,4 @@
-package ch.unicorn.generic;
+package ch.unicorn.config.generic;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

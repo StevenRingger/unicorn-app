@@ -2,7 +2,8 @@ package ch.unicorn.user;
 
 import org.springframework.stereotype.Repository;
 
-import ch.unicorn.generic.ExtendedJpaRepository;
+import ch.unicorn.config.generic.ExtendedJpaRepository;
+
 
 
 @Repository

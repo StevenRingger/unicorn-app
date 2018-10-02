@@ -2,7 +2,7 @@ package ch.unicorn.role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ch.unicorn.generic.ExtendedServiceImpl;
+import ch.unicorn.config.generic.ExtendedServiceImpl;
 
 public class RoleServiceImpl extends ExtendedServiceImpl<Role> implements RoleService{
 

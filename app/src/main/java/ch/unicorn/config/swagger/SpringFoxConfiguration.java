@@ -23,13 +23,13 @@ public class SpringFoxConfiguration {
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("ch.nyp.noa.webContext.domain")).paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("ch.unicorn")).paths(PathSelectors.any())
 				.build().apiInfo(apiInfo());
 
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Rest API NOA").description("Description of Rest API NOA")
+		return new ApiInfoBuilder().title("Rest API Unicorn").description("Description of Rest API Unicorn")
 				.termsOfServiceUrl("").contact(new Contact("NYP", "Lorem Ipsum1", "rain.mr@foxmail.com")).license("")
 				.licenseUrl("").version("1").build();
 	}

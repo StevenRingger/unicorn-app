@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import ch.unicorn.authority.Authority;
-import ch.unicorn.generic.ExtendedEntity;
+import ch.unicorn.config.generic.ExtendedEntity;
 
 @Entity
 @Table(name = "roles")

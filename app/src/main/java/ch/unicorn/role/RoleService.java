@@ -1,6 +1,6 @@
 package ch.unicorn.role;
 
-import ch.unicorn.generic.ExtendedService;
+import ch.unicorn.config.generic.ExtendedService;
 
 /**
  * This interface holds all data access related methods targeted towards the

@@ -56,7 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		propertyReader = new PropertyReader("jwt.properties");
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/welcome", "/login","/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**").permitAll()
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/login","/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**").permitAll()
 				.anyRequest().authenticated().and()
 				.addFilterAfter(new JWTAuthenticationFilter(new AntPathRequestMatcher("/login", "POST"),this.authenticationManagerBean(),propertyReader), UsernamePasswordAuthenticationFilter.class)
 				.addFilterAfter(new JWTAuthorizationFilter(this.authenticationManagerBean(),this.userServiceImpl,propertyReader), UsernamePasswordAuthenticationFilter.class)

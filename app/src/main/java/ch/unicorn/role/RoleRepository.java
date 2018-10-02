@@ -1,6 +1,6 @@
 package ch.unicorn.role;
 
-import ch.unicorn.generic.ExtendedJpaRepository;
+import ch.unicorn.config.generic.ExtendedJpaRepository;
 
 public interface RoleRepository extends ExtendedJpaRepository<Role>{
 	/**

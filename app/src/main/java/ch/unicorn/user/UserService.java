@@ -2,7 +2,6 @@ package ch.unicorn.user;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-
 interface UserService extends UserDetailsService {
 	
 	/**

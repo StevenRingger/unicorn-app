@@ -1,4 +1,4 @@
-package ch.unicorn.generic;
+package ch.unicorn.config.generic;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

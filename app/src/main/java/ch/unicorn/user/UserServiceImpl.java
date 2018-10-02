@@ -1,14 +1,12 @@
 package ch.unicorn.user;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ch.unicorn.generic.ExtendedJpaRepository;
-import ch.unicorn.generic.ExtendedServiceImpl;
+import ch.unicorn.config.generic.ExtendedServiceImpl;
 
 @Service
 public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserService {
@@ -27,10 +25,10 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = this.findByUsername(username);
-		
-		
+		User user = findByUsername(username);
+
 		if (user == null) {
 			throw new UsernameNotFoundException("User could not be found");
 		}
@@ -51,13 +49,11 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
 	 */
 	@Override
 	public void deleteByUsername(String name) {
-		// TODO Auto-generated method stub
-
+		((UserRepository) repository).deleteByUsername(name);
 	}
 
 	@Override
 	public boolean existsById(Long id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
