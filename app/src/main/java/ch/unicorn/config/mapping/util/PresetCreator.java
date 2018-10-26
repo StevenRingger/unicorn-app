@@ -12,7 +12,6 @@ import ch.unicorn.config.mapping.MapperPresetProvider;
  * This class is a utility class, providing methods for easy creation of maps
  * and sets to be used in MapperPresets-Enums
  *
- *
  */
 public abstract class PresetCreator {
 

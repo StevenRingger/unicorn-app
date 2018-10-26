@@ -11,7 +11,6 @@ public class PropertyReader {
 	 * @param fileURL
 	 */
 	public PropertyReader(String fileURL) throws IOException {
-		
 		properties = new Properties();
 		properties.load(getClass().getClassLoader().getResourceAsStream(fileURL));
 	}

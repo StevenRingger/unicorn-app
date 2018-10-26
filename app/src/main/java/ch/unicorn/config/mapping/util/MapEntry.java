@@ -3,6 +3,7 @@ package ch.unicorn.config.mapping.util;
 /**
  * This class represents an Entry of a HashMap
  *
+ *
  * @param <Key> The Type of this entry's key
  * @param <Value> The Type of this entry's value
  */

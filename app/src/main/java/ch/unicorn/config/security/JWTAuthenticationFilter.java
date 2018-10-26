@@ -18,14 +18,15 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.unicorn.config.PropertyReader;
-import ch.unicorn.user.User;
-import ch.unicorn.user.UserDetailsImpl;
+import ch.unicorn.webContext.user.User;
+import ch.unicorn.webContext.user.UserDetailsImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 /**
- * Initial filter that handles the user authentication and JWT generating process
+ * This class handles the user authentication and JWT generating process
  *
+ * @author Yves Kaufmann
  */
 class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
@@ -44,7 +45,7 @@ class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 	}
 
 	/**
-	 * Attempts to login a user with the given credentials
+	 * This method attempts to login a user with the given credentials
 	 *
 	 * @param req Client request
 	 * @param res Response to client request
@@ -54,15 +55,16 @@ class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 			throws AuthenticationException, IOException, ServletException {
 		try {
 			User creds = new ObjectMapper().readValue(req.getInputStream(), User.class);
-			return getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(), creds.getPassword()));
+			return getAuthenticationManager()
+					.authenticate(new UsernamePasswordAuthenticationToken(creds.getUsername(), creds.getPassword()));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
 	/**
-	 * Gets invoked in case the method attemptAuthentication successfully
-	 * authenticated the given user
+	 * This method gets invoked in case the method attemptAuthentication
+	 * successfully authenticated the given user
 	 *
 	 * @param req   Client request
 	 * @param res   Response to client request
@@ -80,10 +82,12 @@ class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
 		// Builds the JWT
 		String token = Jwts.builder().setSubject(subject)
-				.setExpiration(new Date(System.currentTimeMillis() + propertyReader.getIntProperty("jwt.expiration-time")))
+				.setExpiration(
+						new Date(System.currentTimeMillis() + propertyReader.getIntProperty("jwt.expiration-time")))
 				.signWith(SignatureAlgorithm.HS512, propertyReader.getStringProperty("jwt.secret").getBytes())
 				.compact();
-		res.addHeader(propertyReader.getStringProperty("jwt.header-string"),propertyReader.getStringProperty("jwt.token-prefix") + token);
+		res.addHeader(propertyReader.getStringProperty("jwt.header-string"),
+				propertyReader.getStringProperty("jwt.token-prefix") + token);
 	}
-	
+
 }

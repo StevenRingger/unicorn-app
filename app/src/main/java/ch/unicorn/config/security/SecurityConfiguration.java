@@ -13,8 +13,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import ch.unicorn.config.PropertyReader;
-import ch.unicorn.user.UserServiceImpl;
+import ch.unicorn.webContext.user.UserServiceImpl;
 
+/**
+ * This class is the main security context
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -33,15 +36,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		this.userServiceImpl = userServiceImpl;
 		this.pwEncoder = pwEncoder;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(this.userServiceImpl).passwordEncoder(this.pwEncoder);
+		auth.userDetailsService(userServiceImpl).passwordEncoder(pwEncoder);
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -56,11 +59,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		propertyReader = new PropertyReader("jwt.properties");
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/login","/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**").permitAll()
-				.anyRequest().authenticated().and()
-				.addFilterAfter(new JWTAuthenticationFilter(new AntPathRequestMatcher("/login", "POST"),this.authenticationManagerBean(),propertyReader), UsernamePasswordAuthenticationFilter.class)
-				.addFilterAfter(new JWTAuthorizationFilter(this.authenticationManagerBean(),this.userServiceImpl,propertyReader), UsernamePasswordAuthenticationFilter.class)
+		http.cors().and().csrf().disable().authorizeRequests()
+				.antMatchers("/welcome", "/login", "/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html",
+						"/webjars/**")
+				.permitAll().anyRequest().authenticated().and()
+				.addFilterAfter(
+						new JWTAuthenticationFilter(new AntPathRequestMatcher("/login", "POST"),
+								authenticationManagerBean(), propertyReader),
+						UsernamePasswordAuthenticationFilter.class)
+				.addFilterAfter(
+						new JWTAuthorizationFilter(authenticationManagerBean(), userServiceImpl, propertyReader),
+						UsernamePasswordAuthenticationFilter.class)
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
-	
+
 }

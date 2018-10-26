@@ -9,7 +9,6 @@ import java.util.function.Function;
  * This class holds configuration data for
  * {@link Mapper#map(Object, Class, MapperPresetContainer)}
  *
- *
  */
 public class MapperPreset implements MapperPresetProvider {
 	private HashSet<String> ignores;

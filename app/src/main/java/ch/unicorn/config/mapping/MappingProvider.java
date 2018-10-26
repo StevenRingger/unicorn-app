@@ -5,6 +5,7 @@ import ch.unicorn.config.mapping.util.Mapping;
 /**
  * This interface ensures that a Mapping can be provided by the implementing
  * class. All MapperPreset-Enums must implement this interface
+ *
  */
 public interface MappingProvider {
 	/**

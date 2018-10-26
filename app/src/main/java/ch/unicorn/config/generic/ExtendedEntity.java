@@ -8,9 +8,9 @@ import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import ch.unicorn.authority.Authority;
-import ch.unicorn.role.Role;
-import ch.unicorn.user.User;
+import ch.unicorn.webContext.authority.Authority;
+import ch.unicorn.webContext.role.Role;
+import ch.unicorn.webContext.user.User;
 import io.swagger.annotations.ApiModel;
 
 /**
@@ -26,7 +26,7 @@ public abstract class ExtendedEntity {
 	@JsonProperty("id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long id;
+	private Long id;
 
 	/**
 	 * 
@@ -38,7 +38,7 @@ public abstract class ExtendedEntity {
 	/**
 	 * @param id
 	 */
-	public ExtendedEntity(long id) {
+	public ExtendedEntity(Long id) {
 		super();
 		this.id = id;
 	}
@@ -46,14 +46,14 @@ public abstract class ExtendedEntity {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 }

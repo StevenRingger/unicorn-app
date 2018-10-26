@@ -18,6 +18,7 @@ import ch.unicorn.config.mapping.util.Mapping;
  * See also: {@link #map(Object, Class, MapperPresetContainer)},
  * {@link #map(Object, Class, HashSet, HashMap, HashMap)},
  * {@link #register(Class)}
+ *
  */
 public class Mapper {
 	/**
@@ -169,7 +170,7 @@ public class Mapper {
 		if (from == null) {
 			return null;
 		}
-		
+
 		try {
 			// create new instance to be filled out
 			To to = getStandardConstructor(toClass).newInstance();
@@ -197,7 +198,12 @@ public class Mapper {
 				}
 
 				Field fromField = fromProjection.get(fieldToGet);
-				Object value = fromField.get(from);
+				
+				if (fromField == null) {
+					continue;
+				}
+				
+				Object value = fromField != null ? fromField.get(from) : null;
 
 				// apply conversion if set in conversions for current field
 				if (toField.getType() != fromField.getType()) {
